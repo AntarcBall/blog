@@ -6,11 +6,58 @@
 <body>
     <div class="container">
         <div class="content">
-            <h1>헌규의화학블로그</h1>
-            <p>블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.블로그 내용이 여기에 들어갑니다.20남화이팅!!</p>
-            <p>아래 3D이미지를 드래그해서 돌려보세요</p>
-            <iframe style="width: 300px; height: 200px;" frameborder="0" src="https://embed.molview.org/v1/?mode=balls"></iframe>
-            <iframe style="width: 300px; height: 200px;" frameborder="0" src="https://embed.molview.org/v1/?mode=balls&cid=5793"></iframe>
+            <!-- <br></br> -->
+            <h1>건강 지식 이해하기</h1>
+            <p>여러분이 먹는 다양한 음식에는 지방이 들어 있습니다. 지방은 종류가 다양한데, 대표적인 지방으로는 포화지방과 불포화지방, 트랜스지방이 있습니다.
+                불포화지방이 건강에 좋다는 사실은 상당수 사람들이 알고 있지만, 어떻게 건강에 좋은지, 또 어느 식품에 풍부한지를 아는 사람은 많지 않죠. 더욱이 트랜스지방과 포화지방의 차이점을 잘 모르는 이들도 많습니다. 여기서 우리가 아는 화학을 통해 이해해봅시다. </p>
+                <img height = 200 src="https://src.hidoc.co.kr/image/lib/2021/9/1/1630479274004_0.jpg"><p><br>
+                중학교에서 지방은 체내에서 지방산으로 분해된다고 배웠습니다. 바로 그 분해된 지방산의 종류가 지방의 종류를 결정하게 됩니다. <br>
+                포화지방산과 불포화지방산의 차이는 포화 가능의 여부입니다.<img height = 110 src="https://m.droracle.co.kr/web/upload/NNEditor/20201221/ScreenshotEFBCBF20201213EFBC8D214350EFBCBFGoogle.jpg"> <br>이는 바로 눈으로 쉽게 이해할 수 있습니다. 위 그림은 지방산의 형태입니다. 실제 형태는 아래 있으며, 탄소 뼈대만을 그림으로 표현한 것이지요. 어떤가요?<br>
+                기본적으로 포화지방산은 길쭉한 쌓기 블록과도 같습니다.</p>
+            <iframe style="width: 400px; height: 100px;" frameborder="0" src="https://embed.molview.org/v1/?mode=balls&cid=985"></iframe>
+            <p>이 규칙적으로 꺾인 일자 막대가 몸속에 수천 개 있다고 생각해 봅시다. 이것은 혈관에서 뭉쳐 심각한 건강 문제를 일으킬 지도 모릅니다.</p>
+            <iframe style="width: 400px; height: 100px;" frameborder="0" src="https://embed.molview.org/v1/?mode=balls&cid=445639"></iframe>
+            <p>이것은 올레산으로, 특히 올리브유에 많이 들어있습니다. 그 이유는 위와 반대입니다. 불포화지방산의 특징은 이렇게 꺾여 있어 규칙적인 결합을 하기 불리하다는 것입니다. 포장에 든 빼빼로가 만약 ㅅ자로 생겼다면 서로 걸려 훨씬 적은 양밖에 들어있었을 수 있었을 것이라는 이야기지요.</p>
+             추가로 화학 지식 하나를 주자면, 불포화지방산이 꺾이는 이유는 이중 결합 때문입니다. 세부적인 내용에 대해 더 알고 싶다면 다음 <a href="https://google.com" title="구글">링크</a>를 참고하세요.
+            <canvas id='Cvs' width="500" height="100"></canvas>
+        <script>
+            var canvas = document.getElementById('Cvs');
+            var ctx = canvas.getContext('2d');
+            var x = 0;
+            var y = Math.random()*canvas.height * 0.4;
+            let dx = 2
+            let dy = 0
+            let radius = 10;
+            ctx.fillStyle = '#ffffff'
+            
+            function draw(){
+                ctx.clearRect(0,0,canvas.width,canvas.height)
+                ctx.beginPath();
+                ctx.arc(x,y,radius,0,Math.PI*2);
+                ctx.fill()
+                ctx.closePath()
+                x += dx
+                y += dy
+                if (y + radius > canvas.height){
+                    dy = dy * -0.9
+                    y = canvas.height- radius
+                }
+                dx = dx * 0.996
+                dy += 0.1
+                if (x > canvas.width){
+                    x = 0;
+                }else if(x < 0){
+                    x = canvas.width
+                }
+                
+            }
+            function print(){
+                var value1 = document.getElementById('kan1').value;
+                var value2 = document.getElementById('kan2').value;
+                document.getElementById('result').innerText = value1 * value2;
+            }
+            setInterval(draw,10);
+        </script>
         </div>
     </div>
 </body>
